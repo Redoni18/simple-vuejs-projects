@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="app">
+            <header>
+                <h1>Vue course goals</h1>
+            </header>
+
+            <section id="user-goal">
+                <h2>My course goal</h2>
+                <p>{{outputGoal()}}</p>
+                <p>Learn more <a :href="vueLink">about Vue.js</a></p>
+            </section>
+
+
+            <header>
+                <h1>Vue Events</h1>
+            </header>
+
+            <section id="events">
+                <h2>Events in action</h2>
+                <button type="button" @click.prevent="increment(10)">Add 10</button>
+                <button type="button" @click.prevent="decrement(5)" v-if="counter > 0">Subtract 5</button>
+                <p v-once>Starting counter: {{counter}}</p>
+                <p>Result: {{counter}}</p>
+                <input v-model="name"/>
+                <input v-model="lastname"/>
+                <button @click="resetName">Reset Name</button>
+                <p>Your name: {{fullname}}</p>
+
+                <form v-on:submit.prevent="submitForm">
+                    <input type="text"/>
+                    <button>Sign up</button>
+                </form>
+
+                <section id="styling">
+                    <!-- <div class="demo" :style="{backgroundColor: boxASelected ? '#1b995e' : ''}" @click="boxSelected('A')"></div>
+                    <div class="demo" :style="{backgroundColor: boxBSelected ? '#1b995e' : ''}" @click="boxSelected('B')"></div>
+                    <div class="demo" :style="{backgroundColor: boxCSelected ? '#1b995e' : ''}" @click="boxSelected('C')"></div>
+                 -->
+                 <div class="demo" :class="{active: boxASelected}" @click="boxSelected('A')"></div>
+                 <div class="demo" :class="{active: boxBSelected}" @click="boxSelected('B')"></div>
+                 <div class="demo" :class="{active: boxCSelected}" @click="boxSelected('C')"></div>
+                </section>
+
+            </section>
+        </div>
+        <script src="https://unpkg.com/vue@next"></script>
+        <script src="app.js" async defer></script>
+    </body>
+</html>
